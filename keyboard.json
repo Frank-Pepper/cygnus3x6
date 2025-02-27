@@ -5,7 +5,7 @@
     "development_board": "promicro_rp2040",
     "diode_direction": "COL2ROW",
     "features": {
-        "bootmagic": false,
+        "bootmagic": true,
         "command": false,
         "console": false,
         "extrakey": true,
@@ -83,9 +83,9 @@
                 {"matrix": [3, 0], "x": 10, "y": 1},
                 {"matrix": [3, 1], "x": 11, "y": 1.125},
                 {"matrix": [3, 2], "x": 0, "y": 2.25},
-                {"matrix": [3, 3], "x": 1, "y": 2.25},
-                {"matrix": [3, 4], "x": 2, "y": 2.125},
-                {"matrix": [3, 5], "x": 3, "y": 2}
+                {"matrix": [7, 0], "x": 1, "y": 2.25},
+                {"matrix": [7, 1], "x": 2, "y": 2.125},
+                {"matrix": [7, 2], "x": 3, "y": 2}
             ]
         }
     }
