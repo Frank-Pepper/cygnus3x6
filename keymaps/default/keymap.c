@@ -6,17 +6,23 @@
 #define MOUSE TG(_MOUSE)
 #define NAV TG(_NAV)
 
+#define KC_COPY C(KC_C)
+#define KC_PASTE C(KC_V)
+#define KC_UNDO C(KC_Z)
+#define KC_CUT C(KC_X)
+
 enum custom_layers {
     _BASE,
     _NUMS,
     _NAV,
     _MOUSE,
     _FUNC,
-  };
+};
 
 const uint16_t PROGMEM cut[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM copy[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM paste[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM toggle_nav_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM toggle_mouse_combo[] = {KC_J, KC_K, COMBO_END};
 
@@ -24,6 +30,7 @@ combo_t key_combos[] = {
     COMBO(cut, KC_CUT),
     COMBO(copy, KC_COPY),
     COMBO(paste, KC_PASTE),
+    COMBO(kl_combo, KC_ESC),
     COMBO(toggle_nav_combo, NAV),
     COMBO(toggle_mouse_combo, MOUSE), // keycodes with modifiers are possible too!
 };
@@ -57,11 +64,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_NUMS] = LAYOUT_split_3x6_3( \
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_VOLU,
+         KC_GRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_VOLU,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_VOLD,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        _______, XXXXXXX, KC_TILD, KC_GRV,  KC_LBRC, KC_LCBR,                      KC_RCBR, KC_RBRC, KC_COMM, KC_DOT,  KC_SLSH, _______,
+        _______, KC_TILD, KC_MINS, KC_UNDS, KC_LBRC, KC_LCBR,                      KC_RCBR, KC_RBRC, KC_PLUS, KC_EQL,  KC_PIPE, KC_BSLS,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_LGUI, KC_COLON
                                         //`--------------------------'  `--------------------------'
@@ -74,18 +81,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         XXXXXXX,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      XXXXXXX, KC_COPY, KC_PASTE, KC_CUT, KC_UNDO, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            KC_LGUI,  KC_TAB,     NAV,    MS_BTN1, MS_BTN2, MS_BTN3
+                                            KC_LGUI,  KC_TAB,     NAV,    MS_BTN1, MS_BTN3, MS_BTN2
                                         //`--------------------------'  `--------------------------'
     ),
       [_MOUSE] = LAYOUT_split_3x6_3( \
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, MS_BTN1, MS_WHLU, MS_BTN2, XXXXXXX, KC_VOLU,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      XXXXXXX, MS_LEFT, MS_UP,   MS_DOWN, MS_RGHT, KC_VOLD,
+        XXXXXXX, XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      MS_WHLL, MS_LEFT, MS_UP,   MS_DOWN, MS_RGHT, KC_VOLD,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, MS_WHLL, MS_WHLD, MS_WHLR, KC_SLSH, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, MS_BTN4, MS_WHLD, MS_BTN5, MS_WHLR, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            KC_TRNS,  KC_TAB,   MOUSE,    MS_BTN1, MS_BTN2, MS_BTN3
+                                            KC_TRNS,  KC_TAB,   MOUSE,    MS_BTN1, MS_BTN3, MS_BTN2
                                         //`--------------------------'  `--------------------------'
     ),
 };
