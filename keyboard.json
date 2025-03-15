@@ -28,6 +28,10 @@
         "serial": {
             "driver": "vendor",
             "pin": "GP1"
+        },
+        "transport": {
+            "watchdog": true,
+            "watchdog_timeout": 5000
         }
     },
     "url": "",
