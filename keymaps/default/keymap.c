@@ -6,7 +6,9 @@
 #define MOUSE TG(_MOUSE)
 #define NAV TG(_NAV)
 
+#define ALTBSPC LALT_T(KC_BSPC)
 #define LENTR LT(_NUMS, KC_ENT)
+#define RALENTR RALT_T(KC_ENT)
 
 #define KC_COPY C(KC_C)
 #define KC_PASTE C(KC_V)
@@ -38,20 +40,6 @@ combo_t key_combos[] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-     /*
-      * ┌───┬───┬───┬───┬───┬───┐       ┌───┬───┬───┬───┬───┬───┐
-      * │Tab│ Q │ W │ E │ R │ T │       │ Y │ U │ I │ O │ P │Bsp│
-      * ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
-      * │Ctl│ A │ S │ D │ F │ G │       │ H │ J │ K │ L │ ; │ ' │
-      * ├───┼───┼───┼───┼───┼───┤       ├───┼───┼───┼───┼───┼───┤
-      * │Sft│ Z │ X │ C │ V │ B │       │ N │ M │ , │ . │ / │Sft│
-      * └───┴───┴───┴───┴───┴───┘       └───┴───┴───┴───┴───┴───┘
-      *               ┌───┐                   ┌───┐
-      *               │GUI├───┐           ┌───┤Alt│
-      *               └───┤Bsp├───┐   ┌───┤Ent├───┘
-      *                   └───┤   │   │   ├───┘
-      *                       └───┘   └───┘
-      */
     [_BASE] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
@@ -60,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, SC_RSPC,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|  
-                                            KC_BSPC, KC_LGUI,   LENTR,     KC_SPC,  KC_ENT,  KC_RALT
+                                            ALTBSPC, KC_LGUI,   LENTR,     KC_SPC, RALENTR,  KC_RALT
                                         //`--------------------------'  `--------------------------'
 
     ),
@@ -72,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         _______, KC_TILD, KC_MINS, KC_UNDS, KC_LBRC, KC_LCBR,                      KC_RCBR, KC_RBRC, KC_PLUS, KC_EQL,  KC_PIPE, KC_BSLS,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                            KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_LGUI, KC_COLON
+                                            KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS, KC_LGUI,  KC_DOT
                                         //`--------------------------'  `--------------------------'
     ),
     [_NAV] = LAYOUT_split_3x6_3( \
