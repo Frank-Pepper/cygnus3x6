@@ -1,5 +1,8 @@
 # Cygnus 3x6
 
+## Handwired keyboard built using this open-source project as a reference:
+[Cygnus keyboard files](https://github.com/juhakaup/keyboards/tree/main/Cygnus%20v1.0)
+
 ## Photo
 
 ![keyboard picture](/assets/keyboard.jpg "keyboard")
