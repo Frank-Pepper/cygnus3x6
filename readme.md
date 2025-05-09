@@ -1,13 +1,13 @@
 # Cygnus 3x6
 
-## Photo:
+## Photo
 
-![keyboard.png](/assets/keyboard.png "image replace me!")
+![keyboard picture](/assets/keyboard.png "keyboard")
 
 
-## Keymap:
+## Keymap
 
-![keyboard.png](/assets/my_keymap.png "image replace me!")
+![keymap picture with combos](/assets/my_keymap.png "keymap with combos")
 
 ## Bootloader
 
