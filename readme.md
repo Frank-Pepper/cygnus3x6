@@ -1,22 +1,13 @@
-# test
+# Cygnus 3x6
 
-![test](imgur.com image replace me!)
+## Photo:
 
-*A short description of the keyboard/project*
+![keyboard.png](/assets/keyboard.png "image replace me!")
 
-* Keyboard Maintainer: [test](https://github.com/test)
-* Hardware Supported: *The PCBs, controllers supported*
-* Hardware Availability: *Links to where you can find this hardware*
 
-Make example for this keyboard (after setting up your build environment):
+## Keymap:
 
-    make test:default
-
-Flashing example for this keyboard:
-
-    make test:default:flash
-
-See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) and the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information. Brand new to QMK? Start with our [Complete Newbs Guide](https://docs.qmk.fm/#/newbs).
+![keyboard.png](/assets/my_keymap.png "image replace me!")
 
 ## Bootloader
 
