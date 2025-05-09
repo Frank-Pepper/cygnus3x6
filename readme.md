@@ -2,7 +2,7 @@
 
 ## Photo
 
-![keyboard picture](/assets/keyboard.png "keyboard")
+![keyboard picture](/assets/keyboard.jpg "keyboard")
 
 
 ## Keymap
