@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
       [_MOUSE] = LAYOUT_split_3x6_3( \
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, QK_BOOT,                      XXXXXXX, MS_BTN1, MS_WHLU, MS_BTN2, XXXXXXX, KC_VOLU,
+        XXXXXXX, XXXXXXX, XXXXXXX, CG_LSWP, CG_LNRM, QK_BOOT,                      XXXXXXX, MS_BTN1, MS_WHLU, MS_BTN2, XXXXXXX, KC_VOLU,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      MS_WHLL, MS_LEFT, MS_UP,   MS_DOWN, MS_RGHT, KC_VOLD,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
