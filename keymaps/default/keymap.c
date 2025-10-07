@@ -5,6 +5,7 @@
 
 #define MOUSE TG(_MOUSE)
 #define NAV TG(_NAV)
+#define GAME TG(_GAME)
 
 #define ALTBSPC LALT_T(KC_BSPC)
 #define LENTR LT(_NUMS, KC_ENT)
@@ -21,6 +22,7 @@ enum custom_layers {
     _NAV,
     _MOUSE,
     _FUNC,
+    _GAME,
 };
 
 const uint16_t PROGMEM cut[] = {KC_Z, KC_X, COMBO_END};
@@ -38,6 +40,15 @@ combo_t key_combos[] = {
     COMBO(toggle_nav_combo, NAV),
     COMBO(toggle_mouse_combo, MOUSE), // keycodes with modifiers are possible too!
 };
+
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    /* Disable combo `SOME_COMBO` on layer `_LAYER_A` */
+    if (layer_state_is(_GAME)) {
+        return false;
+    }
+
+    return true;
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_split_3x6_3(
@@ -65,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_NAV] = LAYOUT_split_3x6_3( \
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_HOME, KC_PGUP, KC_PGDN,  KC_END, KC_VOLU,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    GAME,                      XXXXXXX, KC_HOME, KC_PGUP, KC_PGDN,  KC_END, KC_VOLU,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, KC_VOLD,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -74,7 +85,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             KC_LGUI,  KC_TAB,     NAV,    MS_BTN1, MS_BTN3, MS_BTN2
                                         //`--------------------------'  `--------------------------'
     ),
-      [_MOUSE] = LAYOUT_split_3x6_3( \
+    [_MOUSE] = LAYOUT_split_3x6_3( \
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
         XXXXXXX, XXXXXXX, XXXXXXX, CG_LSWP, CG_LNRM, QK_BOOT,                      XXXXXXX, MS_BTN1, MS_WHLU, MS_BTN2, XXXXXXX, KC_VOLU,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -84,5 +95,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             KC_TRNS,  KC_TAB,   MOUSE,    MS_BTN1, MS_BTN3, MS_BTN2
                                         //`--------------------------'  `--------------------------'
+    ),
+    [_GAME] = LAYOUT_split_3x6_3(
+    //,-----------------------------------------------------.                    ,-----------------------------------------------------.
+        KC_TAB,  XXXXXXX,    KC_Q,    KC_W,    KC_E,    KC_R,                    TO(_BASE), XXXXXXX,   KC_UP, XXXXXXX,    KC_P, KC_BSPC,
+    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+        SC_LSPO, XXXXXXX,    KC_A,    KC_S,    KC_D,    KC_F,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT,    KC_Q, KC_QUOT,
+    //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
+        KC_LCTL, XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,                         KC_N,    KC_M, XXXXXXX, XXXXXXX, XXXXXXX, SC_RSPC,
+    //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|  
+                                            ALTBSPC, KC_LGUI,  KC_SPC,     KC_SPC, RALENTR,  KC_RALT
+                                        //`--------------------------'  `--------------------------'
+
     ),
 };

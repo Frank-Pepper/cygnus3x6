@@ -1,1 +1,3 @@
 #define MASTER_LEFT
+
+#define COMBO_SHOULD_TRIGGER
