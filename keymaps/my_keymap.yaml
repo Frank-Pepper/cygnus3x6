@@ -1,0 +1,60 @@
+layout: {qmk_keyboard: corne_rotated, layout_name: LAYOUT_split_3x6_3}
+layers:
+  BASE:
+  - [TAB, Q, W, E, R, T, Y, U, I, O, P, BSPC]
+  - [SC LSPO, A, S, D, F, G, H, J, K, L, ;, '''']
+  - [LCTL, Z, X, C, V, B, N, M, ',', ., /, SC RSPC]
+  - {t: BSPC, h: LALT}
+  - LGUI
+  - {t: ENT, h: NUMS}
+  - SPC
+  - {t: ENT, h: RALT}
+  - RALT
+  NUMS:
+  - ['`', '!', '@', '#', '$', '%', ^, '&', '*', (, ), VOLU]
+  - [{t: ▽, type: trans}, '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', VOLD]
+  - [{t: ▽, type: trans}, '~', '-', _, '[', '{', '}', ']', +, '=', '|', \]
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held, t: NUMS}
+  - {t: ▽, type: trans}
+  - LGUI
+  - .
+  NAV: 
+  - ['', '', '', '', '', GAME, '', HOME, PGUP, PGDN, END, VOLU]
+  - ['', '', LALT, LCTL, LSFT, '', LEFT, DOWN, UP, RGHT, '', VOLD]
+  - ['', '1', '2', '3', '4', '5',
+    '', Ctl+C, Ctl+V, Ctl+X, Ctl+Z, '']
+  - LGUI
+  - TAB
+  - {type: held, t: NAV}
+  - MS BTN1
+  - MS BTN3
+  - MS BTN2
+  MOUSE:
+  - ['', '', '', CG LSWP, CG LNRM, QK BOOT, '', MS BTN1, MS WHLU, MS BTN2, '', VOLU]
+  - ['', '', LALT, LCTL, LSFT, '', MS WHLL, MS LEFT, MS UP, MS DOWN, MS RGHT, VOLD]
+  - ['', '', '', '', '', '', '', MS BTN4, MS WHLD, MS BTN5, MS WHLR, '']
+  - {t: ▽, type: trans}
+  - TAB
+  - {type: held, t: MOUSE}
+  - MS BTN1
+  - MS BTN3
+  - MS BTN2
+  GAME:
+  - [TAB, '', Q, W, E, R, {type: ghost, t: BASE}, '', UP, '', P, BSPC]
+  - [SC LSPO, '', A, S, D, F, '', LEFT, DOWN, RGHT, Q, '''']
+  - [LCTL, '', Z, X, C, V, N, M, '', '', '', SC RSPC]
+  - {t: BSPC, h: LALT}
+  - LGUI
+  - SPC
+  - SPC
+  - {t: ENT, h: RALT}
+  - RALT
+combos:
+  - {tk: [D, F], k: NAV, l: ["BASE"]}
+  - {tk: [K, L], k: MOUSE, l: ["BASE"]}
+  - {tk: [L, ;], k: ESC, l: ["BASE"]}
+  - {tk: [Z, X], k: CUT, l: ["BASE"]}
+  - {tk: [X, C], k: COPY, l: ["BASE"]}
+  - {tk: [C, V], k: PASTE, l: ["BASE"]}
