@@ -31,6 +31,7 @@ const uint16_t PROGMEM paste[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM toggle_nav_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM toggle_mouse_combo[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM toggle_game_combo[] = {KC_S, KC_D, KC_F, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(cut, KC_CUT),
@@ -39,6 +40,7 @@ combo_t key_combos[] = {
     COMBO(kl_combo, KC_ESC),
     COMBO(toggle_nav_combo, NAV),
     COMBO(toggle_mouse_combo, MOUSE), // keycodes with modifiers are possible too!
+    COMBO(toggle_game_combo, GAME),
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
@@ -98,11 +100,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_GAME] = LAYOUT_split_3x6_3(
     //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        KC_TAB,  XXXXXXX,    KC_Q,    KC_W,    KC_E,    KC_R,                    TO(_BASE), XXXXXXX,   KC_UP, XXXXXXX,    KC_P, KC_BSPC,
+        KC_TAB,   KC_ESC,    KC_Q,    KC_W,    KC_E,    KC_R,                         GAME, XXXXXXX,   KC_UP, XXXXXXX,    KC_P, KC_BSPC,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         SC_LSPO, XXXXXXX,    KC_A,    KC_S,    KC_D,    KC_F,                      XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT,    KC_Q, KC_QUOT,
     //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-        KC_LCTL, XXXXXXX,    KC_Z,    KC_X,    KC_C,    KC_V,                         KC_N,    KC_M, XXXXXXX, XXXXXXX, XXXXXXX, SC_RSPC,
+        KC_LCTL,    GAME,    KC_Z,    KC_X,    KC_C,    KC_V,                         KC_N,    KC_M, XXXXXXX, XXXXXXX, XXXXXXX, SC_RSPC,
     //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|  
                                             ALTBSPC, KC_LGUI,  KC_SPC,     KC_SPC, RALENTR,  KC_RALT
                                         //`--------------------------'  `--------------------------'

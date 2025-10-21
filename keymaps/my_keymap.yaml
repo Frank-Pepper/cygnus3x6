@@ -42,9 +42,9 @@ layers:
   - MS BTN3
   - MS BTN2
   GAME:
-  - [TAB, '', Q, W, E, R, {type: ghost, t: BASE}, '', UP, '', P, BSPC]
+  - [TAB, ESC, Q, W, E, R, {type: held, t: BASE}, '', UP, '', P, BSPC]
   - [SC LSPO, '', A, S, D, F, '', LEFT, DOWN, RGHT, Q, '''']
-  - [LCTL, '', Z, X, C, V, N, M, '', '', '', SC RSPC]
+  - [LCTL, {type: ghost, t: GAME}, Z, X, C, V, N, M, '', '', '', SC RSPC]
   - {t: BSPC, h: LALT}
   - LGUI
   - SPC
@@ -52,6 +52,7 @@ layers:
   - {t: ENT, h: RALT}
   - RALT
 combos:
+  - {tk: [S, D, F], k: NAV, l: ["BASE"], align: top}
   - {tk: [D, F], k: NAV, l: ["BASE"]}
   - {tk: [K, L], k: MOUSE, l: ["BASE"]}
   - {tk: [L, ;], k: ESC, l: ["BASE"]}
